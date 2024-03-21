@@ -1,37 +1,28 @@
 package es.tarea.annotations;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import java.util.logging.Logger;
 public class UseGym {
-	
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		
+
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TrainingConfig.class);
 		
-		Personal David = context.getBean("Coach", Personal.class);
-		
-		Personal Mario = context.getBean("limpieza", Personal.class);
+		Logger logger = Logger.getLogger(UseGym.class.getName());
+		Personal david = context.getBean("myCoach", Personal.class);
 
-		
-		Personal headCoach = context.getBean("headCoach", Personal.class);
-		
-		HeadCoach boss = context.getBean("headCoach", HeadCoach.class);
-		
-		System.out.println("David tiene libres los " + David.getFreeDays());
-		System.out.println("El trabajo de David es " + David.getWork());
-		
-		System.out.println("El headcoach tiene libre " + headCoach.getFreeDays());
-		System.out.println("El trabajo del headcoach es " + headCoach.getWork());
-		
-		System.out.println("Mario descansa los " + Mario.getFreeDays());
-		System.out.println("El trabajo del headcoach es " + Mario.getWork());
-		
-		System.out.println("Nombre del gym: " + boss.getGymName());
-		System.out.println("Localización del gym: " + boss.getLocalization());
-		
+
+		HeadCoach headCoach = context.getBean("myHeadCoach", HeadCoach.class);
+
+
+		logger.info(david.getName() + " se encarga de los "+ david.getWork() +" tiene libres los " + david.getFreeDays());
+		logger.info("=========================================================================");
+
+		logger.info(headCoach.getName()+ " se encargar de "+ headCoach.getWork() + " y a veces " + headCoach.getNewTraining() + " y no libra " + headCoach.getFreeDays());
+		logger.info("=========================================================================");
+		logger.info("El gym es " + headCoach.getGymName() + " y se encuentra en " + headCoach.getLocalization());
+
+
 		context.close();
 	}
 

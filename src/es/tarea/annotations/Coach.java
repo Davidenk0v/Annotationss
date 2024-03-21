@@ -1,20 +1,36 @@
 package es.tarea.annotations;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component("Coach")
+@Component("myCoach")
 public class Coach implements Personal {
 	
-	@Autowired
-	@Qualifier("weightlifting")
+
+	@Qualifier("myWeightlifting")
 	private Training nuevoEntreno;
 	
+	@Value("${coach}")
+	public String name;
+	
+	public void setNuevoEntreno(Training nuevoEntreno) {
+		this.nuevoEntreno = nuevoEntreno;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 	@Override
 	public String getWork() {
-		// TODO Auto-generated method stub
 		return "Dar clases de crossfit";
 
 	}
@@ -22,13 +38,11 @@ public class Coach implements Personal {
 
 	@Override
 	public String getFreeDays() {
-		// TODO Auto-generated method stub
 		return "Sábados y domingos";
 	}
 
 
 	public String getTraining() {
-		// TODO Auto-generated method stub
 		return nuevoEntreno.getworkout();
 	}
 	

@@ -1,21 +1,47 @@
 package es.tarea.annotations;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-public class HeadCoach implements Personal{
-	
-	
+@Component("myHeadCoach")
+public class HeadCoach implements Personal {
+
+	@Qualifier("myGymnastic")
 	private Training newTraining;
+
+	@Autowired
+	public HeadCoach(Training newTraining, String gymName, String localization, String name) {
+		this.newTraining = newTraining;
+		this.gymName = gymName;
+		this.localization = localization;
+		this.name = name;
+	}
 	
+	public HeadCoach(Training endurance) {
+		this.newTraining = endurance;
+	}
+
 	@Value("${gymName}")
 	private String gymName;
-	
+
 	@Value("${localizacion}")
 	private String localization;
-	
-	
-	public Training getNewTraining() {
-		return newTraining;
+
+	@Value("${boss}")
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getNewTraining() {
+		return newTraining.getworkout();
 	}
 
 	public void setNewTraining(Training newTraining) {
@@ -38,22 +64,16 @@ public class HeadCoach implements Personal{
 		this.localization = localization;
 	}
 
-	public HeadCoach(Training newTraining) {
-		this.newTraining = newTraining;
-	}
-
 	@Override
 	public String getWork() {
-		// TODO Auto-generated method stub
 		return "Gestionar a los entrenadores y clientes";
 	}
 
 	@Override
 	public String getFreeDays() {
-		// TODO Auto-generated method stub
+
 		return "Nunca";
 	}
-	
 
 	public String getTraining() {
 		return newTraining.getworkout();

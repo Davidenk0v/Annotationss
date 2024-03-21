@@ -10,17 +10,15 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:gymData.property")
 public class TrainingConfig {
 
-	//Definir el bean para el Entrenamiento
-	
+	// Definir el bean para el Entrenamiento
 	@Bean
-	public Training endurance() {
+	public Training myEndurance() {
 		return new Endurance();
 	}
-	
-	
-	//Definir el bean para el Coach
+
+	// Definir el bean para el headCoach
 	@Bean
-	public Personal headCoach() {
-		return new HeadCoach(endurance());
+	public Personal myHeadCoach() {
+		return new HeadCoach(myEndurance());
 	}
 }
