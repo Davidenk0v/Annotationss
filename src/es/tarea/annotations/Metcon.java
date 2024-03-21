@@ -10,6 +10,12 @@ public class Metcon implements Training {
 		// TODO Auto-generated method stub
 		return "Entrenamientos de alta intensidad";
 	}
+
+	@Override
+	public String duration() {
+		// TODO Auto-generated method stub
+		return "La duración es de 50 minutos";
+	}
 	
 
 }

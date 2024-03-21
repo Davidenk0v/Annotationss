@@ -11,4 +11,10 @@ public class Endurance implements Training {
 		return "Entrenamiento de cardio de larga duración";
 	}
 
+	@Override
+	public String duration() {
+		// TODO Auto-generated method stub
+		return "La duración es de 90 minutos";
+	}
+
 }

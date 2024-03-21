@@ -14,7 +14,6 @@ public class TrainingConfig {
 	
 	@Bean
 	public Training endurance() {
-		
 		return new Endurance();
 	}
 	

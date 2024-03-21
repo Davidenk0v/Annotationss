@@ -54,7 +54,7 @@ public class HeadCoach implements Personal{
 		return "Nunca";
 	}
 	
-	@Override
+
 	public String getTraining() {
 		return newTraining.getworkout();
 	}

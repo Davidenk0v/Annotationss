@@ -27,7 +27,6 @@ public class Coach implements Personal {
 	}
 
 
-	@Override
 	public String getTraining() {
 		// TODO Auto-generated method stub
 		return nuevoEntreno.getworkout();

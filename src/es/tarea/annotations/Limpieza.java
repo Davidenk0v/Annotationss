@@ -3,18 +3,19 @@ package es.tarea.annotations;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Weightlifting implements Training {
+public class Limpieza implements Personal {
 
 	@Override
-	public String getworkout() {
+	public String getWork() {
 		// TODO Auto-generated method stub
-		return "Entrenamiento de fuerza";
+		return "Limpiar el gym";
 	}
 
 	@Override
-	public String duration() {
+	public String getFreeDays() {
 		// TODO Auto-generated method stub
-		return "La duración es de 1 hora";
+		return "Sábados y domingos";
 	}
+
 
 }
